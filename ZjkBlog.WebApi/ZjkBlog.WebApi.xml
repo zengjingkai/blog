@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ZjkBlog.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:ZjkBlog.WebApi.Controllers.AuthController.Gettoken(ZjkBlog.WebApi.JwtLoginRequest)">
+            <summary>
+            获取Token
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ZjkBlog.WebApi.Controllers.UserController">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="M:ZjkBlog.WebApi.Controllers.UserController.Login(System.String,System.String)">
+            <summary>
+            登陆
+            </summary>
+            <param name="Author"></param>
+            <param name="pwd"></param>
+            <returns></returns>     
+        </member>
+        <member name="M:ZjkBlog.WebApi.Controllers.UserController.GetAllUser">
+            <summary>
+            获取全部用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ZjkBlog.WebApi.Appsettings">
+            <summary>
+            appsettings.json操作类
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ZjkBlog.WebApi.Appsettings.app(System.String[])" -->
+        <member name="M:ZjkBlog.WebApi.Appsettings.app``1(System.String[])">
+            <summary>
+            递归获取配置信息数组
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sections"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ZjkBlog.WebApi.JwtLoginRequest">
+            <summary>
+            登录请求类
+            </summary>
+        </member>
+    </members>
+</doc>
