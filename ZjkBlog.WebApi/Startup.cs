@@ -6,8 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -28,16 +30,17 @@ namespace ZjkBlog.WebApi
         {
             Configuration = configuration;
         }
-
+        
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddControllers();
             services.AddMvc();
             services.AddSession();
-
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             #region swagger
             services.AddSwaggerGen(a =>
             {
@@ -81,7 +84,15 @@ namespace ZjkBlog.WebApi
                 #endregion
             });
             #region 注册JwT验证
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+            // AddAuthorization 添加基于授权的方法
+            // AddAuthentication 验证授权模式是否为Jwt Bearer   
+            // AddJwtBearer Jwt信息验证
+            services
+            //.AddAuthorization(Options =>
+            //{
+            //    Options.AddPolicy("permission",policy=> policy.Requirements.Add(new PolicyRequirement()))
+            //}) 
+            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
             {
                 //获取appsettings配置值 第一种方式：建立对应Model
                 var jwtmodel = Configuration.GetSection(nameof(JwtIssuerOptions));

@@ -66,6 +66,9 @@ namespace ZjkBlog.Model
         /// </summary>
         [SugarColumn(IsNullable = true)]
         public DateTime? ModifyTime { get; set; }
-
+        [SugarColumn(IsIgnore = true)]
+        public UserModel UserModel { get; set; }
+        [SugarColumn(IsIgnore = true)]
+        public Role Role { get; set; }
     }
 }

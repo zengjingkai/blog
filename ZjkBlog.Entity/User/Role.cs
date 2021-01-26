@@ -33,6 +33,11 @@ namespace ZjkBlog.Model
         [SugarColumn(IsNullable = true)]
         public bool? IsDeleted { get; set; }
         /// <summary>
+        /// 角色编码 Code
+        /// </summary>
+        [SugarColumn(ColumnDataType = "nvarchar", Length = 50, IsNullable = true)]
+        public string Code { get; set; }
+        /// <summary>
         /// 角色名
         /// </summary>
         [SugarColumn(ColumnDataType = "nvarchar", Length = 50, IsNullable = true)]
