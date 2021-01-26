@@ -51,15 +51,17 @@ namespace ZjkBlog.WebApi.Controllers
             if ("admin".Equals(request.LoginID))
             {
                  claims = new[]{
-                    new Claim(JwtRegisteredClaimNames.Nbf,$"{new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds()}") ,
+                    new Claim(JwtRegisteredClaimNames.Nbf,$"{new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds()}") ,                    
                     new Claim (JwtRegisteredClaimNames.Exp,$"{new DateTimeOffset(DateTime.Now.AddMinutes(30)).ToUnixTimeSeconds()}"),
                     new Claim( "ManageId", "admin"),
+                    //申明角色
                     new Claim(ClaimTypes.Role,"admin") };
             }
             else
             {
                  claims = new[]{
                     new Claim(JwtRegisteredClaimNames.Nbf,$"{new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds()}") ,
+                     //这个就是过期时间，目前是过期30秒，可自定义，注意JWT有自己的缓冲过期时间
                     new Claim (JwtRegisteredClaimNames.Exp,$"{new DateTimeOffset(DateTime.Now.AddMinutes(30)).ToUnixTimeSeconds()}"),
                     new Claim( "ManageId", "user"),
                     new Claim(ClaimTypes.Role,"user") };

@@ -58,7 +58,7 @@ namespace ZjkBlog.WebApi
                 {
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey,
-                    Description = "在下方输入框中请求头需要添加JWT授权Token，格式为 ：Bearer Token",
+                    Description = "在下方输入框中请求头需要添加JWT授权Token，格式为 ：Bearer {Token}",
                     Name = "Authorization",
                     BearerFormat = "JWT",
                     Scheme = "Bearer"
@@ -99,7 +99,7 @@ namespace ZjkBlog.WebApi
                     ValidateIssuer = true,//是否验证Issuer
                     ValidateAudience = true,//是否验证Audience
                     ValidateLifetime = true,//是否验证失效时间
-                    ClockSkew = TimeSpan.FromSeconds(30),
+                    ClockSkew = TimeSpan.FromSeconds(30), //注意这是缓冲过期时间，总的有效时间等于这个时间加上jwt的过期时间，如果不配置，默认是5分钟
                     ValidateIssuerSigningKey = true,//是否验证SecurityKey
                     ValidAudience = audience,//Audience
                     ValidIssuer = iss,//Issuer，这两项和前面签发jwt的设置一致

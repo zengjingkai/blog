@@ -44,8 +44,7 @@ namespace ZjkBlog.WebApi.Controllers
             bool bo = false;
             DateTime n1 = DateTime.Now;
             bo = bus.UserLogin(Author, pwd);        
-            TimeSpan ts = DateTime.Now - n1;
-            this._logger.LogInformation("调用方法：UserLogin，时间为："+ ts.TotalSeconds+"秒");
+            this._logger.LogInformation("调用方法：UserLogin，时间为："+ (DateTime.Now - n1).TotalSeconds+"秒");
             if (!bo)
             {
                 this._logger.LogInformation("账号或密码错误，登陆失败");
