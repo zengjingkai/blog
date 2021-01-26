@@ -30,6 +30,7 @@ namespace ZjkBlog.Model
         /// 是否是按钮
         /// </summary>
         public bool IsButton { get; set; } = false;
+
         /// <summary>
         /// 是否是隐藏菜单
         /// </summary>
