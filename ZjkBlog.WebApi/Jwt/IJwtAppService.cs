@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using ZjkBlog.Model;
 
 namespace ZjkBlog.WebApi
 {
@@ -12,7 +13,7 @@ namespace ZjkBlog.WebApi
         /// </summary>
         /// <param name="dto">用户信息数据传输对象</param>
         /// <returns></returns>
-        JwtAuthorizationDto Create(JwtLoginRequest dto);
+        JwtAuthorizationDto Create(UserRole dto);
 
         /// <summary>
         /// 刷新 Token
@@ -20,7 +21,7 @@ namespace ZjkBlog.WebApi
         /// <param name="token">Token</param>
         /// <param name="dto">用户信息数据传输对象</param>
         /// <returns></returns>
-        Task<JwtAuthorizationDto> RefreshAsync(string token, JwtLoginRequest dto);
+        Task<JwtAuthorizationDto> RefreshAsync(string token, UserRole dto);
 
         /// <summary>
         /// 判断当前 Token 是否有效

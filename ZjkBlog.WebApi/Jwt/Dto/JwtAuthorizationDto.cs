@@ -16,11 +16,11 @@ namespace ZjkBlog.WebApi
         public string Token { get; set; }
 
         /// <summary>
-        /// 所經過的秒數
+        /// 所花费的时间（秒）
         /// </summary>
         public long Auths { get; set; }
         /// <summary>
-        /// 所經過的秒數
+        /// 所经过的时间（秒）
         /// </summary>
         public long Expires { get; set; }
         /// <summary>
