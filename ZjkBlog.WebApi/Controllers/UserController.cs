@@ -58,7 +58,17 @@ namespace ZjkBlog.WebApi.Controllers
         [HttpPost]
         public string GetAllUser()
         {
-            return "GetAllUser";
+            string userList = string.Empty;
+            try
+            {
+                userList = bus.GetAllUser();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return userList;
         }
     }
 }

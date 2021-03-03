@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ZjkBlog.DbAccess\ZjkBlog.Dal.csproj" />
     <ProjectReference Include="..\ZjkBlog.Entity\ZjkBlog.Model.csproj" />
     <ProjectReference Include="..\ZjkBlog.IDal\ZjkBlog.IDal.csproj" />

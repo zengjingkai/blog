@@ -46,5 +46,24 @@ namespace ZjkBlog.Dal
            
             return i;
         }
+
+        public DataSet GetAllUser()
+        {
+            StringBuilder strSql = new StringBuilder();
+            DataSet ds = new DataSet();
+            try
+            {
+
+                strSql.Append("select *  FROM `pub_user`");             
+
+                ds = MysqlHelper.ExecuteDataset(strSql.ToString());                
+            }
+            catch (Exception ex)
+            {
+                this._logger.LogError("错误！" + ex.Message);
+            }
+            return ds;
+
+        }
     }
 }

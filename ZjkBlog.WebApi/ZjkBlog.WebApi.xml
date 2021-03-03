@@ -30,6 +30,137 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:ZjkBlog.WebApi.JwtAuthorizationDto.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:ZjkBlog.WebApi.JwtAuthorizationDto.Token">
+            <summary>
+            Token令牌
+            </summary>
+        </member>
+        <member name="P:ZjkBlog.WebApi.JwtAuthorizationDto.Auths">
+            <summary>
+            所花费的时间（秒）
+            </summary>
+        </member>
+        <member name="P:ZjkBlog.WebApi.JwtAuthorizationDto.Expires">
+            <summary>
+            所经过的时间（秒）
+            </summary>
+        </member>
+        <member name="P:ZjkBlog.WebApi.JwtAuthorizationDto.Success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="T:ZjkBlog.WebApi.JwtLoginRequest">
+            <summary>
+            登录请求类
+            </summary>
+        </member>
+        <member name="M:ZjkBlog.WebApi.IJwtAppService.Create(ZjkBlog.Model.UserRole)">
+            <summary>
+            新增 Jwt token
+            </summary>
+            <param name="dto">用户信息数据传输对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:ZjkBlog.WebApi.IJwtAppService.RefreshAsync(System.String,ZjkBlog.Model.UserRole)">
+            <summary>
+            刷新 Token
+            </summary>
+            <param name="token">Token</param>
+            <param name="dto">用户信息数据传输对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:ZjkBlog.WebApi.IJwtAppService.IsCurrentActiveTokenAsync">
+            <summary>
+            判断当前 Token 是否有效
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ZjkBlog.WebApi.IJwtAppService.DeactivateCurrentAsync">
+            <summary>
+            停用当前 Token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ZjkBlog.WebApi.IJwtAppService.IsActiveAsync(System.String)">
+            <summary>
+            判断 Token 是否有效
+            </summary>
+            <param name="token">Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:ZjkBlog.WebApi.IJwtAppService.DeactivateAsync(System.String)">
+            <summary>
+            停用 Token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ZjkBlog.WebApi.JwtAppService.Create(ZjkBlog.Model.UserRole)">
+            <summary>
+            新增 Token
+            </summary>
+            <param name="user">用户信息数据传输对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:ZjkBlog.WebApi.JwtAppService.DeactivateAsync(System.String)">
+            <summary>
+            停用 Token
+            </summary>
+            <param name="token">Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:ZjkBlog.WebApi.JwtAppService.DeactivateCurrentAsync">
+            <summary>
+            停用当前 Token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ZjkBlog.WebApi.JwtAppService.GetKey(System.String)">
+            <summary>
+            设置缓存中过期 Token 值的 key
+            </summary>
+            <param name="token">Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:ZjkBlog.WebApi.JwtAppService.GetCurrentAsync">
+            <summary>
+            获取 HTTP 请求的 Token 值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ZjkBlog.WebApi.JwtAppService.RefreshAsync(System.String,ZjkBlog.Model.UserRole)">
+            <summary>
+            刷新 Token
+            </summary>
+            <param name="token">Token</param>
+            <param name="dto">用户信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:ZjkBlog.WebApi.JwtAppService.GetExistenceToken(System.String)">
+            <summary>
+            判断是否存在当前 Token
+            </summary>
+            <param name="token">Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:ZjkBlog.WebApi.JwtAppService.IsCurrentActiveTokenAsync">
+            <summary>
+            判断当前 Token 是否有效
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ZjkBlog.WebApi.JwtAppService.IsActiveAsync(System.String)">
+            <summary>
+            判断 Token 是否有效
+            </summary>
+            <param name="token">Token</param>
+            <returns></returns>
+        </member>
         <member name="T:ZjkBlog.WebApi.Appsettings">
             <summary>
             appsettings.json操作类
@@ -43,11 +174,6 @@
             <typeparam name="T"></typeparam>
             <param name="sections"></param>
             <returns></returns>
-        </member>
-        <member name="T:ZjkBlog.WebApi.JwtLoginRequest">
-            <summary>
-            登录请求类
-            </summary>
         </member>
     </members>
 </doc>
