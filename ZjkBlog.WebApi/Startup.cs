@@ -40,7 +40,13 @@ namespace ZjkBlog.WebApi
             services.AddControllers();
             services.AddMvc();
             services.AddSession();
+            services.AddHttpContextAccessor();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddResponseCaching(options =>
+            {
+                //是否区分请求路径大小写
+                options.UseCaseSensitivePaths = false;
+            });
             #region swagger
             services.AddSwaggerGen(a =>
             {
@@ -118,6 +124,25 @@ namespace ZjkBlog.WebApi
                 };
             });
             #endregion
+
+            services.AddCors(options =>
+            {
+                //全局起作用
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                    });
+
+                options.AddPolicy("AnotherPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+
+            });
             //添加数据库的相关服务
             //string connectionString = Configuration.GetConnectionString("DbConnectionString");
             //services.Add(new ServiceDescriptor(typeof(DBContext), new DBContext(connectionString)));
@@ -131,6 +156,10 @@ namespace ZjkBlog.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts();
+            }
             //身份认证中间件(踩坑：授权中间件必须在认证中间件之前)
             app.UseAuthentication();
             //启用中间件服务生成Swagger作为JSON终结点
@@ -140,13 +169,14 @@ namespace ZjkBlog.WebApi
                 c.SwaggerEndpoint("/swagger/V1/swagger.json", "Web Api V1");
                 // c.RoutePrefix = "";
             });
-            app.UseSession();
+            app.UseSession();            
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseRouting();
-
+            app.UseResponseCaching();
             app.UseAuthorization();
-
+            //使用 Cors
+            app.UseCors();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

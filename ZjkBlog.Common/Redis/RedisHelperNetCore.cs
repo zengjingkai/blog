@@ -51,10 +51,8 @@ namespace ZjkBlog.Common
                         connection = new Lazy<ConnectionMultiplexer>(() => ConnectionMultiplexer.Connect(_conn)).Value;
                     }
                 }
-                catch (Exception ex)
-                {
-                    //Log.LogError("RedisHelper->CacheConnection 出错\r\n" + ex.ToString());
-                    return null;
+                catch (Exception )
+                {                  
                 }
                 return connection;
             }
@@ -156,7 +154,7 @@ namespace ZjkBlog.Common
             {
                 return CacheRedis.StringGet(key);
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 //Log.LogError("RedisHelper->StringGet 出错\r\n" + ex.ToString());
                 return null;
@@ -195,7 +193,7 @@ namespace ZjkBlog.Common
                 }
                 return addrs;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 //Log.LogError("RedisHelper->StringGetMany 出错\r\n" + ex.ToString());
                 return null;

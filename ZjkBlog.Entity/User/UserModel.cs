@@ -25,6 +25,7 @@ namespace ZjkBlog.Model
         private string _Birthday;
         private string _Auditor;
         private string _Pwd;
+        private string _Creator;
         private Func<object, object> p;
 
         public UserModel(Func<object, object> p)
@@ -81,6 +82,14 @@ namespace ZjkBlog.Model
             get { return _Pwd; }
             set { _Pwd = value; }
         }
-
+        /// <summary>
+        /// 创建者
+        /// </summary>
+        [MaxLength(60)]
+        public string Creator
+        {
+            get { return _Creator; }
+            set { _Creator = value; }
+        }
     }
 }

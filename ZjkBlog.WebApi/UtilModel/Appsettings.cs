@@ -33,7 +33,7 @@ namespace ZjkBlog.WebApi
             Configuration = configuration;
         }
 
-        /// <summary>
+   
         /// <summary>
         /// 封装要操作的字符串
         /// </summary>
@@ -43,7 +43,6 @@ namespace ZjkBlog.WebApi
         {
             try
             {
-
                 if (sections.Any())
                 {
                     return Configuration[string.Join(":", sections)];

@@ -22,7 +22,7 @@ namespace ZjkBlog.Common
                 columnName = dc.ColumnName;
                 try
                 {
-                    System.Reflection.PropertyInfo pinfo = obj.GetType().GetProperty(columnName.ToUpper());
+                    System.Reflection.PropertyInfo pinfo = obj.GetType().GetProperty(columnName);
                     if (pinfo != null)
                     {
                         switch (pinfo.PropertyType.Name.ToLower())

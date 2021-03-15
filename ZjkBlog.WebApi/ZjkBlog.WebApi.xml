@@ -30,6 +30,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:ZjkBlog.WebApi.Controllers.UserController.AddUser(System.String)">
+            <summary>
+            新增一个用户
+            </summary>
+            <param name="Author"></param>
+            <returns></returns>     
+        </member>
         <member name="P:ZjkBlog.WebApi.JwtAuthorizationDto.UserId">
             <summary>
             用户ID
@@ -166,7 +173,13 @@
             appsettings.json操作类
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:ZjkBlog.WebApi.Appsettings.app(System.String[])" -->
+        <member name="M:ZjkBlog.WebApi.Appsettings.app(System.String[])">
+            <summary>
+            封装要操作的字符串
+            </summary>
+            <param name="sections">节点</param>
+            <returns>最后一个节点的值</returns>
+        </member>
         <member name="M:ZjkBlog.WebApi.Appsettings.app``1(System.String[])">
             <summary>
             递归获取配置信息数组
