@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace ZjkBlog.Common.Utils
+namespace ZjkBlog.Common
 {
  public class SafeHelper
     {
@@ -54,6 +54,11 @@ namespace ZjkBlog.Common.Utils
         //    bool result = false;
         //    return result = CheckData(HttpContext.Current.Request.UrlReferrer.ToString());
         //}
+        /// <summary>
+        /// 判断字符串是否存在非法字符
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
         public static bool CheckData(string inputData)
         {
             if (Regex.IsMatch(inputData, StrRegex))
@@ -64,6 +69,31 @@ namespace ZjkBlog.Common.Utils
             {
                 return false;
             }
+
         }
+
+        /// <summary>
+        /// 判断字符串数组是否存在非法字符
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public static bool CheckData(string [] inputData)
+        {
+            bool bo = false;
+            foreach (var item in inputData)
+            {
+                if (Regex.IsMatch(item, StrRegex))
+                {
+                    bo = true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            return bo;
+        }
+
     }
 }

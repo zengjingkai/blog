@@ -27,10 +27,10 @@ namespace ZjkBlog.Dal
             DataSet ds = new DataSet();
             try
             {
-                MySqlParameter[] param = new MySqlParameter[2];
-                strSql = strSql.Append(@" SELECT  * FROM pub_user WHERE Auditor=?Auditor AND Pwd=?Pwd");
+                MySqlParameter[] param = new MySqlParameter[1];
+                strSql = strSql.Append(@" SELECT  * FROM pub_user WHERE Auditor=?Auditor");
                 param[0] = new MySqlParameter("?Auditor", model.Auditor);
-                param[1] = new MySqlParameter("?Pwd", model.Pwd);
+               // param[1] = new MySqlParameter("?Pwd", model.Pwd);
                 ds = MysqlHelper.ExecuteDataset(strSql.ToString(), param);
               
             }

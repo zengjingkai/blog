@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace ZjkBlog.Common
@@ -157,5 +159,23 @@ namespace ZjkBlog.Common
             else
                 return null;
         }
+
+        /// <summary>
+        /// 判断DataSet是否为空
+        /// </summary>
+        /// <param name="ds"></param>
+        /// <returns></returns>
+        public static bool DataSetIsOrNotNull(DataSet ds)
+        {
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
